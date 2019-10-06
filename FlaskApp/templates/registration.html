@@ -25,24 +25,10 @@
 
             <div class="formField">
                 {{ form.first_name }}
-                {% if form.first_name.errors %}
-                    <div class="errorMessage">
-                    {% for error in form.first_name.errors %}
-                        <li>{{ error }}</li>
-                    {% endfor %}
-                    </div>
-                {% endif %}
             </div>
 
             <div class="formField">
                 {{ form.last_name }}
-                {% if form.last_name.errors %}
-                    <div class="errorMessage">
-                    {% for error in form.last_name.errors %}
-                        <li>{{ error }}</li>
-                    {% endfor %}
-                    </div>
-                {% endif %}
             </div>
 
             <div class="formField">

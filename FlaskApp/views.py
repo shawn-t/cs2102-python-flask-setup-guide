@@ -58,4 +58,4 @@ def render_login_page():
 @view.route("/privileged-page", methods=["GET"])
 @login_required
 def render_privileged_page():
-    return "<h1>Hello, {}!</h1>".format(current_user.preferred_name or current_user.username)
+    return "<h1>Hello, {}!</h1>".format(current_user.first_name or current_user.username)

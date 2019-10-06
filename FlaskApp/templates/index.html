@@ -9,6 +9,8 @@
     <div class="login-panel text-align-center">
         <img src="static/images/login-img.jpg">
         <form class="loginForm">
+            {{ form.csrf_token }}
+
             <div class="formField">
                 {{ form.username }}
                 {% if form.username.errors %}
