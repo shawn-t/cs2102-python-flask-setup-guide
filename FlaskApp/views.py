@@ -16,8 +16,7 @@ def load_user(username):
 
 @view.route("/", methods=["GET"])
 def render_dummy_page():
-    return "<h1>CS2102</h1>\
-    <h2>Flask App started successfully!</h2>"
+    return render_template("")
 
 
 @view.route("/registration", methods=["GET", "POST"])
@@ -25,19 +24,20 @@ def render_registration_page():
     form = RegistrationForm()
     if form.validate_on_submit():
         username = form.username.data
-        preferred_name = form.preferred_name.data
+        first_name = form.first_name.data
+        last_name = form.last_name.data
         password = form.password.data
         query = "SELECT * FROM web_user WHERE username = '{}'".format(username)
         exists_user = db.session.execute(query).fetchone()
         if exists_user:
             form.username.errors.append("{} is already in use.".format(username))
         else:
-            query = "INSERT INTO web_user(username, preferred_name, password) VALUES ('{}', '{}', '{}')"\
-                .format(username, preferred_name, password)
+            query = "INSERT INTO web_user(username, first_name, last_name, password) VALUES ('{}', '{}', '{}', '{}')"\
+                .format(username, first_name, last_name, password)
             db.session.execute(query)
             db.session.commit()
             return "You have successfully signed up!"
-    return render_template("registration-simple.html", form=form)
+    return render_template("registration.html", form=form)
 
 
 @view.route("/login", methods=["GET", "POST"])

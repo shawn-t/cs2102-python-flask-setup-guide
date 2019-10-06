@@ -11,7 +11,8 @@ form.registrationForm {
 }
 
 div.formField {
-    color: black;
+    color: white;
+    font-family: monospace;
     display: block;
     padding-top: 0.25rem;
 }
@@ -19,11 +20,8 @@ div.formField {
 button {
     text-align: center;
     cursor: pointer;
-}
-
-#loginButton {
-    background-color: #30799B;
-    color: white;
+    font-family: monospace;
+    margin-top: 1rem;
 }
 
 .errorMessage {
@@ -48,11 +46,6 @@ button {
     width: 25rem;
 }
 
-#registerButton {
-    margin-top: 1rem;
-    font-family: monospace;
-}
-
 .text-align-center {
     text-align: center;
 }
@@ -61,4 +54,17 @@ button {
 .white-font {
     color: white;
     font-family: monospace;
+}
+
+form.loginForm {
+    color: black;
+    display: block;
+}
+
+.login-panel {
+    margin: auto;
+}
+
+.login-panel > img {
+    width: 25rem;
 }
