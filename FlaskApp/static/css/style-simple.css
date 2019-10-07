@@ -24,9 +24,14 @@ button {
     margin-top: 1rem;
 }
 
+a {
+    color: white;
+    font-family: monospace;
+}
+
 .errorMessage {
     color: red;
-    text-align: left;
+    text-align: center;
     padding-top: 5px;
 }
 
@@ -67,4 +72,41 @@ form.loginForm {
 
 .login-panel > img {
     width: 25rem;
+}
+
+.header {
+    background-color: snow;
+    opacity: 50%;
+}
+
+.container {
+    text-align: center;
+}
+
+.search {
+    padding-top: 15rem;
+}
+
+.advertisement-list {
+    padding-top: 5rem;
+}
+
+.bid-list {
+    padding-top: 5rem;
+}
+
+.welcome-message {
+    float: right;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+td > .btn {
+    margin-top: 0;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.table-sm {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 1rem;
 }

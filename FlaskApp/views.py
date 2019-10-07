@@ -15,8 +15,11 @@ def load_user(username):
 
 
 @view.route("/", methods=["GET"])
-def render_dummy_page():
-    return render_template("")
+def render_home_page():
+    if current_user.is_authenticated:
+        return render_template("home.html", current_user=current_user)
+    else:
+        return redirect("/login")
 
 
 @view.route("/registration", methods=["GET", "POST"])
@@ -36,7 +39,7 @@ def render_registration_page():
                 .format(username, first_name, last_name, password)
             db.session.execute(query)
             db.session.commit()
-            return "You have successfully signed up!"
+            form.message = "Register successful! Please login with your newly created account.";
     return render_template("registration.html", form=form)
 
 
@@ -46,12 +49,16 @@ def render_login_page():
     if form.is_submitted():
         print("username entered:", form.username.data)
         print("password entered:", form.password.data)
+        print(form.validate_on_submit())
     if form.validate_on_submit():
         user = WebUser.query.filter_by(username=form.username.data).first()
         if user:
             # TODO: You may want to verify if password is correct
-            login_user(user)
-            return redirect("/privileged-page")
+            if user.password == form.password.data:
+                login_user(user)
+                return redirect("/")
+            else:
+                form.password.errors.append("Wrong password!")
     return render_template("index.html", form=form)
 
 

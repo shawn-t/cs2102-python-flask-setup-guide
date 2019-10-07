@@ -27,7 +27,7 @@
                 {% if form.password.errors %}
                     <div class="errorMessage">
                     {% for error in form.password.errors %}
-                        <li>{{ error }}</li>
+                        {{ error }}
                     {% endfor %}
                     </div>
                 {% endif %}
